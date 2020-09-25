@@ -6,7 +6,7 @@
         <!-- Blog Entries Column -->
         <div class="col-md-8">
 
-            <h1 class="my-4">Lista das ultimas postagens</h1>
+            <h1 class="my-4">Posts list</h1>
 
             @forelse($posts as $post)
                 <!-- Blog Post -->

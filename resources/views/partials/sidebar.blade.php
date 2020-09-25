@@ -5,11 +5,11 @@
         <h5 class="card-header">Search</h5>
         <div class="card-body">
             <div class="input-group">
-                <form action="{{route('welcome')}}" method="get">
-                    <input type="text" class="form-control" placeholder="Search for..." name="term">
+                <form class="form-inline" action="{{route('welcome')}}" method="get">
+                    <input type="text" class="form-control" placeholder="Search for..." name="term" />
                     <span class="input-group-append">
-                                <button class="btn btn-secondary" type="submit">Go!</button>
-                            </span>
+                        <button class="btn btn-secondary" type="submit">Go!</button>
+                    </span>
                 </form>
             </div>
         </div>
