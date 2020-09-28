@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Intervention\Image\Facades\Image;
 
 class PostController extends Controller
 {
@@ -51,14 +52,31 @@ class PostController extends Controller
             "category_id" => "required",
             "title" => "required|min:5|max:100",
             "body" => "required|max:5000",
+            "image" => "required|image|mimes:png,jpeg,jpg|max:2048"
         ]);
 
-        $request->user()->posts()->create($request->all());
+        $data = $this->uploadData($request);
+
+        $request->user()->posts()->create($data);
 
         Session::flash('success', 'Postagem criada com sucesso');
 
         return redirect()->route('posts.index');
 
+    }
+
+    private function uploadData($request)
+    {
+        $data = $request->all();
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $filename = time() . "-" . $image->getClientOriginalName();
+            Image::make($image->path())->fit(750, 300)->save(public_path("uploads/") . $filename);
+            $data["image"] = $filename;
+        }
+
+        return $data;
     }
 
     /**

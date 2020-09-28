@@ -12,7 +12,7 @@
 
                 @include('partials.errors')
 
-                <form action="{{ route('posts.store') }}" method="post">
+                <form action="{{ route('posts.store') }}" method="post" enctype="multipart/form-data">
                     {{ csrf_field() }}
 
                     <div class="form-group">
@@ -29,7 +29,11 @@
                     </div>
                     <div class="form-group">
                         <label for="title">Corpo da postagem</label>
-                        <textarea name="body" class="form-control"></textarea>
+                        <textarea name="body" id="body" class="form-control"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="image">Imagem</label>
+                        <input type="file" name="image" id="image" class="form-control" />
                     </div>
                     <div class="form-group">
                         <div class="text-center">
