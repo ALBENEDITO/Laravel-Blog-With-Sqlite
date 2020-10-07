@@ -18,7 +18,7 @@
             <hr>
 
             <!-- Date/Time -->
-            <p>Posted on {{$post->created_at->diffForHumans()}}</p>
+            <p>Posted on {{$post->created_at}}</p>
 
             <hr>
 
