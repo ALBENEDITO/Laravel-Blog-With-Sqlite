@@ -19,4 +19,18 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::group(['namespace' => 'Api'], function () {
     Route::get('/posts', 'WelcomeController@index');
+    Route::get('/posts/show/{id}', 'WelcomeController@show');
+    Route::get('/posts/category/{category_id}', 'WelcomeController@byCategory');
+    Route::get('/posts/user/{user_id}', 'WelcomeController@byAuthor');
+});
+
+/*
+ * Rotas privadas
+ */
+Route::group(['namespace' => 'Api', 'middleware' => ['auth:api']], function () {
+    Route::get("/categories", "CategoryController@index");
+    Route::post("/categories", "CategoryController@store");
+    Route::get("/categories/{id}", "CategoryController@edit");
+    Route::put("/categories/{id}/update", "CategoryController@update");
+    Route::delete("/categories/{id}", "CategoryController@destroy");
 });

@@ -6,7 +6,7 @@
         <!-- Blog Entries Column -->
         <div class="col-md-8">
 
-            <h1 class="my-4">Posts list</h1>
+            <h1 class="my-4">Posts list on the <strong>{{$category->name}}</strong></h1>
 
             @forelse($posts as $post)
                 <!-- Blog Post -->
@@ -21,7 +21,7 @@
                         <p class="card-text">{!! $post->body !!}</p>
                         <a href="{{route('post.single', ['id' => $post->id])}}" class="btn btn-primary">Read More &rarr;</a>
                     </div>
-                    @include('partials.footer-post')
+                        @include('partials.footer-post')
                 </div>
             @empty
                 <div class="alert alert-warning">

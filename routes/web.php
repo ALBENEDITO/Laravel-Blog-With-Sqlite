@@ -12,6 +12,9 @@
 */
 
 Route::get('/', 'WelcomeController@index')->name('welcome');
+Route::get('/post/{id}', 'WelcomeController@post')->name('post.single');
+Route::get('/post/category/{category_id}', 'WelcomeController@byCategory')->name('posts.category');
+Route::get('/post/user/{user_id}', 'WelcomeController@byAuthor')->name('posts.author');
 
 Auth::routes();
 

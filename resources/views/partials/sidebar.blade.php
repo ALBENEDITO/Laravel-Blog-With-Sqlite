@@ -24,7 +24,7 @@
                     <ul class="list-unstyled mb-0">
                         @foreach($categories as $category)
                             <li>
-                                <a href="#">{{$category->name}}</a>
+                                <a href="{{route('posts.category', ["category_id" => $category->id])}}">{{$category->name}}</a>
                             </li>
                         @endforeach
                     </ul>
