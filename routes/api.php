@@ -33,4 +33,9 @@ Route::group(['namespace' => 'Api', 'middleware' => ['auth:api']], function () {
     Route::get("/categories/{id}", "CategoryController@edit");
     Route::put("/categories/{id}/update", "CategoryController@update");
     Route::delete("/categories/{id}", "CategoryController@destroy");
+
+    Route::get("/post", "PostController@index"); 
+    Route::post("/post", "PostController@store");
+    
+
 });
